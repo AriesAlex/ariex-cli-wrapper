@@ -1,13 +1,7 @@
-module.exports = (options => {
+module.exports = (() => {
   let promptModule = require('prompt')
   promptModule.message = ''
   promptModule.delimiter = ' >'
-
-  if(options?.prompt) {
-    Object.keys(options.prompt).forEach(key => {
-      promptModule[key] = options.prompt[key]
-    })
-  }
 
   promptModule.start()
   let prompt = promptModule.get
@@ -33,7 +27,12 @@ module.exports = (options => {
 
   let alert = console.log
   let clear = console.clear
-  let space = () => {alert('')}
+  let space = num => {
+    num = num ?? 1
+    num--
+    alert('')
+    if(num > 0) space(num)
+  }
 
   return {prompt, format, spinners, alert, clear, space, select}
 })()
