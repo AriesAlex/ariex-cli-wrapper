@@ -1,5 +1,5 @@
 {
-  "name": "ariex-cli",
+  "name": "ariex-cli-wrapper",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
